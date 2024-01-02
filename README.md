@@ -1,2 +1,2 @@
-# Login-Register-js
-Simple register login screen using Javascript (node.js) and Mysql.
+# Login-Register-Node.js
+Authentication with Node.js and MongoDB with JWT.
