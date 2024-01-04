@@ -8,7 +8,10 @@ const jwt = require('jsonwebtoken')
 
 const app = express()
 
-// Open/Public - Route
+// Config JSON Response
+app.use(express.json())
+
+// Open Route / Public Route
 app.get('/' , (req, res) =>{
     res.status(200).json({msg: 'Welcome to API!'})
 })
@@ -17,7 +20,17 @@ app.get('/' , (req, res) =>{
 const dbUser = process.env.DB_USER
 const dbPassword = process.env.DB_PASS
 
+// Register User
+app.post('/auth/register', async(req, res) => {
+    const {name, email, password, confirmpassword} = req.body
+    // Validations
+    if (!name) {
+        return res.status(422).json({msg: 'Insert your name!'})
+    }
+})
 
+
+// Connection to database
 mongoose.connect(`mongodb+srv://${dbUser}:${dbPassword}@cluster0.jmphwqv.mongodb.net/Mydatabase?retryWrites=true&w=majority`
 ).then( () => {
     app.listen(3000)
