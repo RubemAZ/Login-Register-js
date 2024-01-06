@@ -11,6 +11,9 @@ const app = express()
 // Config JSON Response
 app.use(express.json())
 
+// Models
+const User = require('./models/User')
+
 // Open Route / Public Route
 app.get('/' , (req, res) =>{
     res.status(200).json({msg: 'Welcome to API!'})
@@ -22,10 +25,24 @@ const dbPassword = process.env.DB_PASS
 
 // Register User
 app.post('/auth/register', async(req, res) => {
+
     const {name, email, password, confirmpassword} = req.body
+
     // Validations
     if (!name) {
         return res.status(422).json({msg: 'Insert your name!'})
+    }
+
+    if (!email) {
+        return res.status(422).json({msg: 'Insert your email!'})
+    }
+
+    if (!password) {
+        return res.status(422).json({msg: 'Insert your password!'})
+    }
+
+    if (!confirmpassword) {
+        return res.status(422).json({msg: 'confirm your password!'})
     }
 })
 
