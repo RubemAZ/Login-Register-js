@@ -14,7 +14,7 @@ app.use(express.json());
 
 // Open Route
 app.get("/", (req, res) => {
-  res.status(200).json({ msg: "Bem vindo a API!" });
+  res.status(200).json({ msg: "Welcome to API!" });
 });
 
 // Private Route
@@ -147,9 +147,7 @@ mongoose
     `mongodb+srv://${dbUser}:${dbPassword}@cluster0.jmphwqv.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() => {
-    console.log("Conectou ao banco!");
+    console.log("Successful database connection!");
     app.listen(3000);
   })
   .catch((err) => console.log(err));
-
-  //mongodb+srv://razrubem:<password>@cluster0.jmphwqv.mongodb.net/?retryWrites=true&w=majority
