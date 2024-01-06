@@ -144,10 +144,12 @@ const dbPassword = process.env.DB_PASS;
 
 mongoose
   .connect(
-    `mongodb+srv://${dbUser}:${dbPassword}@cluster0.folvv.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`
+    `mongodb+srv://${dbUser}:${dbPassword}@cluster0.jmphwqv.mongodb.net/?retryWrites=true&w=majority`
   )
   .then(() => {
     console.log("Conectou ao banco!");
     app.listen(3000);
   })
   .catch((err) => console.log(err));
+
+  //mongodb+srv://razrubem:<password>@cluster0.jmphwqv.mongodb.net/?retryWrites=true&w=majority
